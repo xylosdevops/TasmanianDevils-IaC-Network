@@ -15,6 +15,8 @@ $templateMetadataFileName = "metadata.json"
 $templateMetadataFileLocation = "$scriptPath\$templateMetadataFileName"
 $templatePrdParameterFileName = "Xylos-Common-Network.prd.parameters.json"
 $templatePrdParemeterFileLocation = "$scriptPath\$templatePrdParameterFileName" 
+$templateAccParameterFileName = "Xylos-Common-Network.acc.parameters.json"
+$templateAccParemeterFileLocation = "$scriptPath\$templateAccParameterFileName" 
 $templateTstParameterFileName = "Xylos-Common-Network.tst.parameters.json"
 $templateTstParemeterFileLocation = "$scriptPath\$templateTstParameterFileName" 
 $templateDevParameterFileName = "Xylos-Common-Network.dev.parameters.json"
@@ -31,6 +33,10 @@ Describe 'ARM Templates Test : Validation & Test Deployment' {
         
         It 'Has a production parameters file' {        
             $templatePrdParemeterFileLocation | Should Exist
+        }
+		
+        It 'Has a acceptance parameters file' {        
+            $templateAccParemeterFileLocation | Should Exist
         }
 
         It 'Has a test parameters file' {        
@@ -90,6 +96,7 @@ Describe 'ARM Templates Test : Validation & Test Deployment' {
         ## dummy parameter file to test default parameters
         $testsTemplateList += ,@("Xylos-Common-Network.json","Xylos-Common-Network.parameters.json")
         $testsTemplateList += ,@("Xylos-Common-Network.json","Xylos-Common-Network.prd.parameters.json")
+		$testsTemplateList += ,@("Xylos-Common-Network.json","Xylos-Common-Network.acc.parameters.json")
         $testsTemplateList += ,@("Xylos-Common-Network.json","Xylos-Common-Network.tst.parameters.json")
         $testsTemplateList += ,@("Xylos-Common-Network.json","Xylos-Common-Network.dev.parameters.json")
 
